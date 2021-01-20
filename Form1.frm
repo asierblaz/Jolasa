@@ -150,6 +150,9 @@ Begin VB.Form Form1
       Begin VB.Menu jolastu 
          Caption         =   "Jolastu"
       End
+      Begin VB.Menu Multi 
+         Caption         =   "Multijugador"
+      End
    End
 End
 Attribute VB_Name = "Form1"
@@ -159,12 +162,14 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 
 
+
 Private Sub Arriba_Click()
 baloia.Top = baloia.Top - 150
 End Sub
 
 
 Private Sub Abajo_Click()
+
 baloia.Top = baloia.Top + 150
 End Sub
 
@@ -177,6 +182,7 @@ Select Case KeyCode
         Case vbKeyDown
             baloia.Top = baloia.Top + 150
     End Select
+
 End Sub
 
 
@@ -184,6 +190,14 @@ Private Sub Form_Load()
 MsgBox "Egin Klik menuan dagoen jolastu opzioan"
 Reset.Visible = False
 
+
+End Sub
+
+Private Sub jolastu_Click()
+MsgBox "Ongi etorri penaltietara " & vbCrLf & "" & vbCrLf & "Joku onetan mugitzeko teklatuko geziak erabili ahal dituzu "
+Lanzar.Visible = True
+Abajo.Visible = True
+Arriba.Visible = True
 
 End Sub
 
