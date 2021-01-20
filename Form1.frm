@@ -77,7 +77,7 @@ Begin VB.Form Form1
       Left            =   13680
       OleObjectBlob   =   "Form1.frx":694E
       TabIndex        =   5
-      Top             =   1320
+      Top             =   2760
       Width           =   1095
    End
    Begin VB.Shape Shape3 
@@ -203,20 +203,30 @@ End Sub
 Private Sub lanzarTimer_Timer()
  baloia.Left = baloia.Left + 150
  
-If baloia.Left >= 14880 And (baloia.Top > 1300 And baloia.Top < 4440) Then
+If baloia.Left >= 14880 And (baloia.Top > 1300 And baloia.Top < 6360) Then
 MsgBox "Gol"
 lanzarTimer.Enabled = False
 PorteroTimerAbajo.Interval = 0
 porteroTimerArriba.Interval = 0
-
+Call Reset_Click
 End If
 
-If baloia.Left >= 14880 And Not (baloia.Top > 1300 And baloia.Top < 4440) Then
+If baloia.Left >= 14880 And Not (baloia.Top > 1300 And baloia.Top < 6360) Then
 MsgBox "A las Nubes!!!"
 lanzarTimer.Enabled = False
 PorteroTimerAbajo.Interval = 0
 porteroTimerArriba.Interval = 0
+Call Reset_Click
 End If
+
+If baloia.Left >= portero.Left And (baloia.Top >= portero.Top) Then
+PorteroTimerAbajo.Interval = 0
+porteroTimerArriba.Interval = 0
+MsgBox "Parada"
+Call Reset_Click
+
+End If
+
 
 End Sub
 
